@@ -115,7 +115,10 @@ module.exports = function(grunt) {
         './public/lib/backbone.js',
         './public/lib/handlebars.js',
         './public/lib/jquery.js',
-        './public/lib/underscore.js'
+        './public/lib/underscore.js',
+        './public/style.css',
+        './public/client/**/*.js',
+        '!./public/client/**/*.min.js'
       ]
     }
   });
@@ -163,22 +166,18 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('squishAll', [
+    'concat:publicClient',
     'uglify',
     'clean'
   ]);
 
-
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
       // add your production server task here
+      grunt.task.run([ 'build' ]);
     } else {
       grunt.task.run([ 'server-dev' ]);
     }
   });
-
-  grunt.registerTask('deploy', [
-    'build'
-  ]);
-
 
 };
