@@ -16,7 +16,7 @@
     "request": "^2.34.0",
     "forever": "^0.10.11",
     "bcrypt-nodejs": "0.0.3",
-    "mongoose": "~3.8.8",
+    "mongoose": "~5.7.6",
     "bluebird": "1.0.8"
   },
   "devDependencies": {
